@@ -171,6 +171,7 @@ public:
     Fuchsia,
     IOS,
     KFreeBSD,
+    Kuribo,
     Linux,
     Lv2,        // PS3
     MacOSX,
@@ -800,6 +801,11 @@ public:
   bool isArm64e() const {
     return getArch() == Triple::aarch64 &&
            getSubArch() == Triple::AArch64SubArch_arm64e;
+  }
+
+  bool isOSCodeWarrior() const {
+    return getArch() == Triple::ppc &&
+           getOS() == Triple::Kuribo;
   }
 
   /// Tests whether the target supports comdat
